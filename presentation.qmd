@@ -21,16 +21,19 @@ La classe `singleCellExperiment` est un container pour écrire et manipuler des 
 
 ## QFeatures
 
-L'infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.
-
+L'infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.\
 Ce qu'il faut savoir :
 
--   Les données de PSM sont divisées en plusieurs séries (1 PSM = 1 ensemble)
+::::: columns
+::: {.column width="40%"}
+\- Les données de PSM sont divisées en plusieurs séries (1 PSM = 1 ensemble)
 
--   Suivies du lien entre les ensembles
+\- Suivies du lien entre les ensembles
 
--   L'objet final contient chaque version des données
+\- L'objet final contient chaque version des données
+:::
 
-![](QFeatures.png "Aperçu d'un objet QFeatures contenant des données cellules uniques de protéomique")
-
-## 
+::: {.column width="60%"}
+![](QFeatures.png)
+:::
+:::::
