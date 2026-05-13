@@ -6,7 +6,7 @@
 <script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-dark-c8b544e1eab81f7563542c0a8b71d1e9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.28">
 
   <meta name="author" content="Léopold Guyot, Loïc Guille">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-175ec1c0ea92bc532c45781632c4e35e.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -123,7 +123,7 @@
     }
   </style>
 </head>
-<body class="quarto-dark">
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
@@ -142,22 +142,24 @@ Léopold Guyot, Loïc Guille
 </section>
 <section id="infrastructure" class="slide level2">
 <h2>Infrastructure</h2>
+<div style="font-size: 70%;">
 <h3 id="summarizedexperiment">SummarizedExperiment</h3>
 <p>Le package <code>summarizedExperiment</code> contient deux classes : <code>summarizedExperiment</code> et <code>RangedSummarizedExperiment</code></p>
 <p>L’objet <code>summarizedExperiment</code> est un container de matrices ou les lignes représentent les variables d’intérêts (gènes, transcripts, etc …) et les colonnes représentent les échantillons. Les informations concernant ces variables d’intérêt sont écrites dans un objet <code>DataFrame</code> et sont accessibles en utilisant la commande <code>RowData()</code>. Un objet peut contenir un ou plusieurs assays, chacun représenté par une matrice.</p>
 <h3 id="singlecellexperiment">SingleCellExperiment</h3>
 <p>La classe <code>singleCellExperiment</code> est un container pour écrire et manipuler des données de cellule unique génomique. Elle étend la classe <code>RangedSummarizedExperiment</code> et suit des conventions similaires. Cette classe fournit des méthodes pour stocker les résultats de réduction de dimension.</p>
+</div>
 </section>
 <section id="qfeatures" class="slide level2">
 <h2>QFeatures</h2>
-<p>L’infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.<br>
-Ce qu’il faut savoir :</p>
+<p>L’infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.</p>
+<p>Ce qu’il faut savoir :</p>
 <div class="columns">
-<div class="column" style="width:40%;">
+<div class="column" style="font-size: 70%;">
 <p>- Les données de PSM sont divisées en plusieurs séries (1 PSM = 1 ensemble)</p>
 <p>- Suivies du lien entre les ensembles</p>
 <p>- L’objet final contient chaque version des données</p>
-</div><div class="column" style="width:60%;">
+</div><div class="column" style="font-size: 70%;">
 <p><img data-src="QFeatures.png"></p>
 </div></div>
 
@@ -377,6 +379,44 @@ Ce qu’il faut savoir :</p>
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

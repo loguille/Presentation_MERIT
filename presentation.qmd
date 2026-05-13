@@ -4,11 +4,15 @@ author: "Léopold Guyot, Loïc Guille"
 date: "22/05/2026"
 format: 
   revealjs:
-    theme: dracula
+    theme: solarized
+editor: visual
+execute:
+  working-dir: /home/loic/uclouvain/Presentation_MERIT
+engine: knitr
 ---
 
 ## Infrastructure 
-
+::: {style="font-size: 70%;"}
 ### SummarizedExperiment
 
 Le package `summarizedExperiment` contient deux classes : `summarizedExperiment` et `RangedSummarizedExperiment`
@@ -18,14 +22,15 @@ L'objet `summarizedExperiment` est un container de matrices ou les lignes repré
 ### SingleCellExperiment 
 
 La classe `singleCellExperiment` est un container pour écrire et manipuler des données de cellule unique génomique. Elle étend la classe `RangedSummarizedExperiment` et suit des conventions similaires. Cette classe fournit des méthodes pour stocker les résultats de réduction de dimension.
-
+:::
 ## QFeatures
 
-L'infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.\
+L'infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.
+
 Ce qu'il faut savoir :
 
 ::::: columns
-::: {.column width="40%"}
+::: {.column width="40%" style="font-size: 70%;"}
 \- Les données de PSM sont divisées en plusieurs séries (1 PSM = 1 ensemble)
 
 \- Suivies du lien entre les ensembles
@@ -33,7 +38,7 @@ Ce qu'il faut savoir :
 \- L'objet final contient chaque version des données
 :::
 
-::: {.column width="60%"}
+::: {.column width="60%" style="font-size: 70%;"}
 ![](QFeatures.png)
 :::
 :::::
