@@ -1,0 +1,36 @@
+---
+title: "QFeaturesGUI, une interface graphique pour l'analyse de données de single-cell proteomics"
+author: "Léopold Guyot, Loïc Guille"
+date: "22/05/2026"
+format: 
+  revealjs:
+    theme: dracula
+---
+
+## Infrastructure 
+
+### SummarizedExperiment
+
+Le package `summarizedExperiment` contient deux classes : `summarizedExperiment` et `RangedSummarizedExperiment`
+
+L'objet `summarizedExperiment` est un container de matrices ou les lignes représentent les variables d'intérêts (gènes, transcripts, etc ...) et les colonnes représentent les échantillons. Les informations concernant ces variables d'intérêt sont écrites dans un objet `DataFrame` et sont accessibles en utilisant la commande `RowData()`. Un objet peut contenir un ou plusieurs assays, chacun représenté par une matrice.
+
+### SingleCellExperiment 
+
+La classe `singleCellExperiment` est un container pour écrire et manipuler des données de cellule unique génomique. Elle étend la classe `RangedSummarizedExperiment` et suit des conventions similaires. Cette classe fournit des méthodes pour stocker les résultats de réduction de dimension.
+
+## QFeatures
+
+L'infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.
+
+Ce qu'il faut savoir :
+
+-   Les données de PSM sont divisées en plusieurs séries (1 PSM = 1 ensemble)
+
+-   Suivies du lien entre les ensembles
+
+-   L'objet final contient chaque version des données
+
+![](QFeatures.png "Aperçu d'un objet QFeatures contenant des données cellules uniques de protéomique")
+
+## 
