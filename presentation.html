@@ -165,23 +165,32 @@ Léopold Guyot, Loïc Guille
 </section>
 <section id="pourquoi-utiliser-qfeaturesgui" class="slide level2">
 <h2>Pourquoi utiliser QFeaturesGUI ?</h2>
+<p>QFeaturesGUI est une collection d’application shiny fournissant une interface graphique pour l’analyse de données protéomiques en utilisant l’écosystèmes Bioconductor. QFeatures peut utiliser des workflows de single-cell et de bulk.</p>
+
+<img data-src="QFeaturesGUI.png" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="pourquoi-utiliser-qfeaturesgui-1" class="slide level2">
+<h2>Pourquoi utiliser QFeaturesGUI ?</h2>
 <p>Assay Table (données quantitatives):</p>
-<p>- cas avec un jeu de données simple :</p>
+<p>- cas avec un jeu de données simple:</p>
 <pre><code>- Colonnes quantitatives (1:n) (Non obligatoire si présence d'un colData)
 
 - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)</code></pre>
-<p>- cas avec un jeu de données multiple :</p>
+<p>- cas avec un jeu de données multiple:</p>
 <pre><code>- Colonne d'identifiant de run
 
 - Colonnes quantitatives (1:n) (non obligatoire si présence d'un colData)
 
 - Annotations des variables d'intérêt</code></pre>
 </section>
-<section id="pourquoi-utiliser-qfeaturesgui-1" class="slide level2">
+<section id="pourquoi-utiliser-qfeaturesgui-2" class="slide level2">
 <h2>Pourquoi utiliser QFeaturesGUI ?</h2>
 <p>colData Table (contient les annotations d’échantillons):</p>
-<p>- cas avec un jeu de données simple :</p>
-<pre><code>- une colonne nommés `quantCols` qui lie un échantillon a une colonne dans l '*assay table*</code></pre>
+<p>- cas avec un jeu de données simple:</p>
+<pre><code>- une colonne nommés `quantCols` qui lie un échantillon a une colonne dans l 'assay table qui contient les intensitées.</code></pre>
+<p>- cas avec un jeu de données multiple:</p>
+<pre><code>- une colonne `quantCols` liant un échantillon à une colonne dans l'assay table contenant les intensitées.
+
+- une colonne `runCol` identifiant le run associé à un échantillon.</code></pre>
 
 </section>
     </div>

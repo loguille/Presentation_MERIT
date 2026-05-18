@@ -43,17 +43,23 @@ Ce qu'il faut savoir :
 :::
 :::::
 
+## Pourquoi utiliser QFeaturesGUI ?
+
+QFeaturesGUI est une collection d'application shiny fournissant une interface graphique pour l'analyse de données protéomiques en utilisant l'écosystèmes Bioconductor. QFeatures peut utiliser des workflows de single-cell et de bulk. 
+
+![](QFeaturesGUI.png){fig-align="center"}
+
 ## Pourquoi utiliser QFeaturesGUI ? 
 
 Assay Table (données quantitatives):
 
-\- cas avec un jeu de données simple : 
+\- cas avec un jeu de données simple: 
 
     - Colonnes quantitatives (1:n) (Non obligatoire si présence d'un colData)
 
     - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)
 
-\- cas avec un jeu de données multiple : 
+\- cas avec un jeu de données multiple: 
 
     - Colonne d'identifiant de run
 
@@ -65,6 +71,12 @@ Assay Table (données quantitatives):
 
 colData Table (contient les annotations d'échantillons):
 
-\- cas avec un jeu de données simple : 
+\- cas avec un jeu de données simple: 
   
-    - une colonne nommés `quantCols` qui lie un échantillon a une colonne dans l '*assay table*
+    - une colonne nommés `quantCols` qui lie un échantillon a une colonne dans l 'assay table qui contient les intensitées.
+    
+\- cas avec un jeu de données multiple:
+
+    - une colonne `quantCols` liant un échantillon à une colonne dans l'assay table contenant les intensitées.
+    
+    - une colonne `runCol` identifiant le run associé à un échantillon.
