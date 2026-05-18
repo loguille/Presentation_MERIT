@@ -89,7 +89,7 @@ colData Table (contient les annotations d'échantillons):
 
 ###  But de l'application
 
-ImportQFeatures est une application permettant la conversion de données protéomique en objet QFeatures.
+`importQFeatures` est une application permettant la conversion de données protéomique en objet QFeatures.
 
 ### Input
 
@@ -97,7 +97,7 @@ ImportQFeatures est une application permettant la conversion de données protéo
 
 - `colData`: cette table contient le design experimental généré par l'utilisateur.
 
-## ImportQFeatures
+## importQFeatures
 
 ### Démarrer l'application
 
@@ -112,8 +112,41 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
 ```
 
-
 ## ProcessQFeatures
+
+### But de l'application
+
+:::{style="font-size:80%"}
+
+`processQFeatures` est une application permettant l'analyse des objets QFeatures.
+
+:::
+
+### Format d'entrée
+
+:::{style="font-size:80%"}
+
+Il existe plusieurs choix afin de passer un objet QFeatures.
+
+Avec un objet chargé dans l'environnement R:
+
+```{r, eval=FALSE, echo=TRUE}
+#qf_objet est un objet QFeatures
+processQFeatures(qf = qf_objet)
+```
+
+Avec un objet depuis un fichier rds: 
+
+```{r, eval=FALSE, echo=TRUE}
+qf_obj <- readRDS("Path/2/File.rds")
+processQFeatures(qf = qf_obj)
+
+#or 
+
+processQFeatures(qf = "Path/2/File.rds")
+```
+
+:::
 
 ## Conclusions
 

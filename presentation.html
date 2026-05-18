@@ -263,7 +263,7 @@ Léopold Guyot, Loïc Guille
 <section id="importqfeatures" class="slide level2">
 <h2>ImportQfeatures</h2>
 <h3 id="but-de-lapplication">But de l’application</h3>
-<p>ImportQFeatures est une application permettant la conversion de données protéomique en objet QFeatures.</p>
+<p><code>importQFeatures</code> est une application permettant la conversion de données protéomique en objet QFeatures.</p>
 <h3 id="input">Input</h3>
 <ul>
 <li><p><code>assayData</code> : cette table est générée après l’identification et la quantification du spectre de MS via l’utilisation de software comme MaxQuant, Proteome Discoverer ou bien MSFragger.</p></li>
@@ -271,7 +271,7 @@ Léopold Guyot, Loïc Guille
 </ul>
 </section>
 <section id="importqfeatures-1" class="slide level2">
-<h2>ImportQFeatures</h2>
+<h2>importQFeatures</h2>
 <h3 id="démarrer-lapplication">Démarrer l’application</h3>
 <p><a href="https://github.com/UCLouvain-CBIO/QFeaturesGUI">github.com/UCLouvain-CBIO/QFeaturesGUI</a></p>
 <p>Dans un environnement R</p>
@@ -284,6 +284,28 @@ Léopold Guyot, Loïc Guille
 </section>
 <section id="processqfeatures" class="slide level2">
 <h2>ProcessQFeatures</h2>
+<h3 id="but-de-lapplication-1">But de l’application</h3>
+<div style="font-size:80%">
+<p><code>processQFeatures</code> est une application permettant l’analyse des objets QFeatures.</p>
+</div>
+<h3 id="format-dentrée">Format d’entrée</h3>
+<div style="font-size:80%">
+<p>Il existe plusieurs choix afin de passer un objet QFeatures.</p>
+<p>Avec un objet chargé dans l’environnement R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co">#qf_objet est un objet QFeatures</span></span>
+<span id="cb6-2"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> qf_objet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Avec un objet depuis un fichier rds:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>qf_obj <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"Path/2/File.rds"</span>)</span>
+<span id="cb7-2"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> qf_obj)</span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a><span class="co">#or </span></span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> <span class="st">"Path/2/File.rds"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </section>
 <section id="conclusions" class="slide level2">
 <h2>Conclusions</h2>
