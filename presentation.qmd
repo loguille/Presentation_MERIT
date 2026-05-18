@@ -42,3 +42,29 @@ Ce qu'il faut savoir :
 ![](QFeatures.png)
 :::
 :::::
+
+## Pourquoi utiliser QFeaturesGUI ? 
+
+Assay Table (données quantitatives):
+
+\- cas avec un jeu de données simple : 
+
+    - Colonnes quantitatives (1:n) (Non obligatoire si présence d'un colData)
+
+    - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)
+
+\- cas avec un jeu de données multiple : 
+
+    - Colonne d'identifiant de run
+
+    - Colonnes quantitatives (1:n) (non obligatoire si présence d'un colData)
+
+    - Annotations des variables d'intérêt
+  
+## Pourquoi utiliser QFeaturesGUI ?
+
+colData Table (contient les annotations d'échantillons):
+
+\- cas avec un jeu de données simple : 
+  
+    - une colonne nommés `quantCols` qui lie un échantillon a une colonne dans l '*assay table*
