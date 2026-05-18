@@ -9,6 +9,7 @@ format:
     theme: solarized
     pointer:
       key: p
+      alwaysVisible: true
 revealjs-plugins:
   - pointer
 css: style.css
