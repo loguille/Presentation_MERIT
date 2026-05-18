@@ -7,6 +7,10 @@ date-format: "DD MMM YYYY"
 format: 
   revealjs:
     theme: solarized
+    pointer:
+      key: p
+revealjs-plugins:
+  - pointer
 css: style.css
 editor: visual
 execute:
