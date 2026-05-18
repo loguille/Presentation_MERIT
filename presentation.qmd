@@ -7,15 +7,17 @@ date-format: "DD MMM YYYY"
 format: 
   revealjs:
     theme: solarized
+css: style.css
 editor: visual
 execute:
   working-dir: /home/loic/uclouvain/Presentation_MERIT
 engine: knitr
 ---
-
 ## Contexte
 
+
 ## Infrastructure 
+
 ::: {style="font-size: 70%;"}
 ### SummarizedExperiment
 
@@ -112,7 +114,7 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
 ```
 
-## ProcessQFeatures
+## processQFeatures
 
 ### But de l'application
 
