@@ -152,4 +152,28 @@ processQFeatures(qf = "Path/2/File.rds")
 
 ### Disponibilité du package
 
+:::{style="font-size:70%"}
+
+[Disponibilité sur github]{style="text-decoration: underline;"}:
+
+\- [github.com/UCLouvain-CBIO/QFeaturesGUI](https://github.com/UCLouvain-CBIO/QFeaturesGUI)
+
+[Disponibilité via Docker]{style="text-decoration: underline"}:
+
+\- Une image pour chaque application sera disponible via docker
+
+Disponibilité via Bioconductor sur la release 3.25
+
+:::
+
 ### Développements futures
+
+:::{style="font-size:70%"}
+
+\- Optimisation du package
+
+\- Une application de visualisation (iSEEQFeatures)
+
+\- Une application d'exploration de résultats d'abondance différentielle (iSEEda)
+
+:::
