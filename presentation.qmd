@@ -11,6 +11,8 @@ execute:
 engine: knitr
 ---
 
+## Contexte
+
 ## Infrastructure 
 ::: {style="font-size: 70%;"}
 ### SummarizedExperiment
@@ -80,3 +82,13 @@ colData Table (contient les annotations d'échantillons):
     - une colonne `quantCols` liant un échantillon à une colonne dans l'assay table contenant les intensitées.
     
     - une colonne `runCol` identifiant le run associé à un échantillon.
+    
+## ImportQfeatures
+
+## ProcessQFeatures
+
+## Conclusions
+
+### Disponibilité du package
+
+### Développements futures
