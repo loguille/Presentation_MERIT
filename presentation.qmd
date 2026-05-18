@@ -55,67 +55,81 @@ Ce qu'il faut savoir :
 
 ## Pourquoi utiliser QFeaturesGUI ?
 
-QFeaturesGUI est une collection d'application shiny fournissant une interface graphique pour l'analyse de données protéomiques en utilisant l'écosystèmes Bioconductor. QFeatures peut utiliser des workflows de single-cell et de bulk. 
+QFeaturesGUI est une collection d'application shiny fournissant une interface graphique pour l'analyse de données protéomiques en utilisant l'écosystème Bioconductor. QFeaturesGUI peut utiliser des workflows de single-cell et de bulk. 
 
 ![](QFeaturesGUI.png){fig-align="center"}
 
-## Pourquoi utiliser QFeaturesGUI ? 
 
-Assay Table (données quantitatives):
-
-\- cas avec un jeu de données simple: 
-
-    - Colonnes quantitatives (1:n) (Non obligatoire si présence d'un colData)
-
-    - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)
-
-\- cas avec un jeu de données multiple: 
-
-    - Colonne d'identifiant de run
-
-    - Colonnes quantitatives (1:n) (non obligatoire si présence d'un colData)
-
-    - Annotations des variables d'intérêt
-  
-## Pourquoi utiliser QFeaturesGUI ?
-
-colData Table (contient les annotations d'échantillons):
-
-\- cas avec un jeu de données simple: 
-  
-    - une colonne nommée `quantCols` qui lie un échantillon a une colonne dans l'assay table qui contient les intensitées.
-    
-\- cas avec un jeu de données multiple:
-
-    - une colonne `quantCols` liant un échantillon à une colonne dans l'assay table contenant les intensitées.
-    
-    - une colonne `runCol` identifiant le run associé à un échantillon.
-    
-## ImportQfeatures
+## importQFeatures
 
 ###  But de l'application
 
 `importQFeatures` est une application permettant la conversion de données protéomique en objet QFeatures.
 
-### Input
+## importQFeatures
 
-- `assayData` : cette table est générée après l'identification et la quantification du spectre de MS via l'utilisation de software comme MaxQuant, Proteome Discoverer ou bien MSFragger.
+### Paramètres
+::: {style="font-size:70%"}
+l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
 
+`assayData` : cette table est générée après l'identification et la quantification du spectre de MS via l'utilisation de software comme MaxQuant, Proteome Discoverer ou bien MSFragger.
+
+  - cas avec un jeu de données simple:
+      
+      - Colonnes quantitatives (1:n) (Non obligatoire si présence d'un colData)
+
+      - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)
+  
+  - cas avec un jeu de donnée multiple:
+    
+      - Colonne d'identifiant de run
+      
+      - Colonnes quantitatives (1:n)
+      
+      - Annotation des variables d'intérêt
+      
 - `colData`: cette table contient le design experimental généré par l'utilisateur.
+:::
+
+## importQFeatures
+
+### Paramètres
+
+::: {style="font-size:70%"}
+
+`colData`: cette table contient le design expérimental généré par l'utilisateur. 
+
+  - Cas avec un jeu de donnée simple:
+  
+      - Une colonne nommée `quantCols` qui lie un échantillon à une colonne dans `assayData` qui contient les intensitées.
+      
+  - Cas avec un jeu de données mutliple:
+  
+      - Une colonne nommée `quantCols` qui lie un échantillon à une colonne dans `assayData` qui contient les intensitées.
+      
+      - Une colonne `runCol` identifiant le run associé à l'échantillon.
+
+:::
 
 ## importQFeatures
 
 ### Démarrer l'application
 
-[github.com/UCLouvain-CBIO/QFeaturesGUI](https://github.com/UCLouvain-CBIO/QFeaturesGUI)
-
-Dans un environnement R
+Pour installer l'application:
 
 ```{r, eval=FALSE, echo=TRUE}
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 
 BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
+```
+
+Pour démarrer l'application:
+
+```{r, eval=FALSE, echo= TRUE}
+library(QFeaturesGUI)
+
+importQFeatures()
 ```
 
 ## processQFeatures
