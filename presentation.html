@@ -238,28 +238,32 @@ Léopold Guyot, Loïc Guille
 <p>QFeaturesGUI est une collection d’application shiny fournissant une interface graphique pour l’analyse de données protéomiques en utilisant l’écosystème Bioconductor. QFeaturesGUI peut utiliser des workflows de single-cell et de bulk.</p>
 
 <img data-src="QFeaturesGUI.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="importqfeatures" class="slide level2">
-<h2>importQFeatures</h2>
-<p><code>importQFeatures</code> est une application permettant l’import de données de protéomique quantitative en objet QFeatures.</p>
+<section id="qfeaturesgui" class="slide level2">
+<h2>QFeaturesGUI</h2>
+<div style="font-size:80%">
 <ul>
-<li>Pour installer l’application:</li>
+<li>Installation du package:</li>
 </ul>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb1-2"><a href=""></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
 <span id="cb1-3"><a href=""></a></span>
 <span id="cb1-4"><a href=""></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/QFeaturesGUI"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div style="font-size:70%">
+<p><code>importQFeatures</code> est une application permettant l’import de données de protéomique quantitative en objet QFeatures.</p>
 <ul>
 <li>Pour démarrer l’application:</li>
 </ul>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(QFeaturesGUI)</span>
 <span id="cb2-2"><a href=""></a></span>
 <span id="cb2-3"><a href=""></a><span class="fu">importQFeatures</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="importqfeatures-1" class="slide level2">
+<section id="importqfeatures" class="slide level2">
 <h2>importQFeatures</h2>
 <h3 id="paramètres">Paramètres</h3>
 <div style="font-size:70%">
@@ -281,7 +285,7 @@ Léopold Guyot, Loïc Guille
 </ul>
 </div>
 </section>
-<section id="importqfeatures-2" class="slide level2">
+<section id="importqfeatures-1" class="slide level2">
 <h2>importQFeatures</h2>
 <h3 id="paramètres-1">Paramètres</h3>
 <div style="font-size:70%">
@@ -334,7 +338,7 @@ Léopold Guyot, Loïc Guille
 <p>- Une image pour chaque application sera disponible via docker</p>
 <p>Disponibilité via Bioconductor sur la release 3.25</p>
 </div>
-<h3 id="développements-futures">Développements futures</h3>
+<h3 id="développements-futurs">Développements futurs</h3>
 <div style="font-size:70%">
 <p>- Optimisation du package</p>
 <p>- Une application de visualisation (iSEEQFeatures)</p>

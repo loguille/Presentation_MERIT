@@ -59,12 +59,11 @@ QFeaturesGUI est une collection d'application shiny fournissant une interface gr
 
 ![](QFeaturesGUI.png){fig-align="center"}
 
-## importQFeatures
+## QFeaturesGUI
+::: {style="font-size:80%"}
 
-`importQFeatures` est une application permettant l'import de données de protéomique quantitative en objet QFeatures.
-
-- Pour installer l'application:
-
+- Installation du package:
+:::
 ```{r, eval=FALSE, echo=TRUE}
 if (!require("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
@@ -72,7 +71,11 @@ if (!require("BiocManager", quietly = TRUE))
 BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
 ```
 
+::: {style="font-size:70%"}
+`importQFeatures` est une application permettant l'import de données de protéomique quantitative en objet QFeatures.
+
 - Pour démarrer l'application:
+:::
 
 ```{r, eval=FALSE, echo= TRUE}
 library(QFeaturesGUI)
@@ -87,7 +90,7 @@ importQFeatures()
 ::: {style="font-size:70%"}
 l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
 
-`assayData` : cette table est générée après l'identification et la quantification du spectre de MS via l'utilisation de software comme MaxQuant, Proteome Discoverer ou bien MSFragger.
+`assayData`: table générée après l'identification et la quantification des spectres de MS.
 
   - cas avec un jeu de données simple:
       
@@ -102,8 +105,6 @@ l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
       - Colonnes quantitatives (1:n)
       
       - Annotation des variables d'intérêt
-      
-- `colData`: cette table contient le design experimental généré par l'utilisateur.
 :::
 
 ## importQFeatures
@@ -112,7 +113,7 @@ l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
 
 ::: {style="font-size:70%"}
 
-`colData`: cette table contient le design expérimental généré par l'utilisateur. 
+`colData`:  table contenant le design expérimental. 
 
   - Cas avec un jeu de donnée simple:
   
@@ -180,7 +181,7 @@ Disponibilité via Bioconductor sur la release 3.25
 
 :::
 
-### Développements futures
+### Développements futurs
 
 :::{style="font-size:70%"}
 
