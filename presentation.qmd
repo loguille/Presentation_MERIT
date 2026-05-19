@@ -27,7 +27,7 @@ engine: knitr
 
 Le package `summarizedExperiment` contient deux classes : `summarizedExperiment` et `RangedSummarizedExperiment`
 
-L'objet `summarizedExperiment` est un container de matrices ou les lignes représentent les variables d'intérêts (gènes, transcripts, etc ...) et les colonnes représentent les échantillons. Les informations concernant ces variables d'intérêt sont écrites dans un objet `DataFrame` et sont accessibles en utilisant la commande `RowData()`. Un objet peut contenir un ou plusieurs assays, chacun représenté par une matrice.
+L'objet `summarizedExperiment` est un container de matrices ou les lignes représentent les variables d'intérêts (gènes, transcripts, etc ...) et les colonnes représentent les échantillons. Un objet peut contenir un ou plusieurs assays, chacun représenté par une matrice.
 
 ### SingleCellExperiment 
 
@@ -35,15 +35,15 @@ La classe `singleCellExperiment` est un container pour écrire et manipuler des 
 :::
 ## QFeatures
 
-L'infrastructure QFeatures permet le management et le traitement de données quantitatives de spectrometrie de masse à haut débit.
+L'infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrometrie de masse à haut débit.
 
 Ce qu'il faut savoir :
 
 ::::: columns
 ::: {.column width="40%" style="font-size: 70%;"}
-\- Les données de PSM sont divisées en plusieurs séries (1 PSM = 1 ensemble)
+\- Les données de PSM sont divisées en plusieurs séries (1 série = 1 run)
 
-\- Suivies du lien entre les ensembles
+\- Suivies du lien entre les séries
 
 \- L'objet final contient chaque version des données
 :::
@@ -59,12 +59,27 @@ QFeaturesGUI est une collection d'application shiny fournissant une interface gr
 
 ![](QFeaturesGUI.png){fig-align="center"}
 
-
 ## importQFeatures
 
-###  But de l'application
+`importQFeatures` est une application permettant l'import de données de protéomique quantitative en objet QFeatures.
 
-`importQFeatures` est une application permettant la conversion de données protéomique en objet QFeatures.
+- Pour installer l'application:
+
+```{r, eval=FALSE, echo=TRUE}
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
+```
+
+- Pour démarrer l'application:
+
+```{r, eval=FALSE, echo= TRUE}
+library(QFeaturesGUI)
+
+importQFeatures()
+```
+
 
 ## importQFeatures
 
@@ -110,27 +125,6 @@ l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
       - Une colonne `runCol` identifiant le run associé à l'échantillon.
 
 :::
-
-## importQFeatures
-
-### Démarrer l'application
-
-Pour installer l'application:
-
-```{r, eval=FALSE, echo=TRUE}
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
-
-BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
-```
-
-Pour démarrer l'application:
-
-```{r, eval=FALSE, echo= TRUE}
-library(QFeaturesGUI)
-
-importQFeatures()
-```
 
 ## processQFeatures
 
