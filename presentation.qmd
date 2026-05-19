@@ -20,7 +20,7 @@ engine: knitr
 ## Contexte
 
 
-## Infrastructure 
+## Structure de données 
 
 ::: {style="font-size: 70%;"}
 ### SummarizedExperiment
