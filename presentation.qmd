@@ -17,7 +17,36 @@ execute:
   working-dir: /home/loic/uclouvain/Presentation_MERIT
 engine: knitr
 ---
+## Pourquoi étudier la single-cell proteomics ?
+
+::: {.single-cell-proteome-main}
+
+- Protéines = activité cellulaire
+
+- La corrélation ARNm/protéines n'est pas parfaite [Budnik et al., 2018]
+
+- Causes:
+  - Régulation traductionnelle
+  - Dégradation
+  - Modifications post-traductionnelles
+
+:::
+
+::: {.single-cell-proteome-reference}
+Budnik B, Levy E, Harmange G, Slavov N. SCoPE-MS: mass spectrometry of single mammalian cells quantifies proteome heterogeneity during cell differentiation. *Genome Biology*, 19(1):161, October 2018.
+:::
+
+
 ## Contexte
+
+::: {.context-steps}
+![](framing1.drawio.png)
+![](framing2.drawio.png){.fragment}
+![](framing3.drawio.png){.fragment}
+![](framing4.drawio.png){.fragment}
+![](framing5.drawio.png){.fragment}
+![](framing6.drawio.png){.fragment}
+:::
 
 
 ## Structure de données 
@@ -65,8 +94,7 @@ QFeaturesGUI est une collection d'application shiny fournissant une interface gr
 - Installation du package:
 :::
 ```{r, eval=FALSE, echo=TRUE}
-if (!require("BiocManager", quietly = TRUE))
-    install.packages("BiocManager")
+# install.packages("BiocManager")
 
 BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
 ```
@@ -146,7 +174,7 @@ Il existe plusieurs choix afin de passer un objet QFeatures.
 Avec un objet chargé dans l'environnement R:
 
 ```{r, eval=FALSE, echo=TRUE}
-#qf_objet est un objet QFeatures
+# qf_objet est un objet QFeatures
 processQFeatures(qf = qf_objet)
 ```
 
@@ -156,7 +184,7 @@ Avec un objet depuis un fichier rds:
 qf_obj <- readRDS("Path/2/File.rds")
 processQFeatures(qf = qf_obj)
 
-#or 
+# ou
 
 processQFeatures(qf = "Path/2/File.rds")
 ```

@@ -6,8 +6,8 @@
 <script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.28">
+<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Léopold Guyot, Loïc Guille">
   <title>QFeaturesGUI, une interface graphique pour l’analyse de données de single-cell proteomics</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -95,7 +98,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-1a8385bbf955fbb4448938bc10efacf4.css">
   <link rel="stylesheet" href="style.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -207,8 +210,29 @@ Léopold Guyot, Loïc Guille
 
   <p class="date">19 mai 2026</p>
 </section>
+<section id="pourquoi-étudier-la-single-cell-proteomics" class="slide level2">
+<h2>Pourquoi étudier la single-cell proteomics ?</h2>
+<div class="single-cell-proteome-main">
+<ul>
+<li><p>Protéines = activité cellulaire</p></li>
+<li><p>Corrélation ARNm/protéines pas parfaite [Budnik et al., 2018]</p></li>
+<li><p>Causes:</p>
+<ul>
+<li>Régulation traductionnelle</li>
+<li>Dégradation</li>
+<li>Modifications post-traductionnelles</li>
+</ul></li>
+</ul>
+</div>
+<div class="single-cell-proteome-reference">
+<p>Budnik B, Levy E, Harmange G, Slavov N. SCoPE-MS: mass spectrometry of single mammalian cells quantifies proteome heterogeneity during cell differentiation. <em>Genome Biology</em>, 19(1):161, October 2018.</p>
+</div>
+</section>
 <section id="contexte" class="slide level2">
 <h2>Contexte</h2>
+<div class="context-steps">
+<p><img data-src="framing1.drawio.png"> <img data-src="framing2.drawio.png" class="fragment"> <img data-src="framing3.drawio.png" class="fragment"> <img data-src="framing4.drawio.png" class="fragment"> <img data-src="framing5.drawio.png" class="fragment"> <img data-src="framing6.drawio.png" class="fragment"></p>
+</div>
 </section>
 <section id="structure-de-données" class="slide level2">
 <h2>Structure de données</h2>
@@ -246,10 +270,10 @@ Léopold Guyot, Loïc Guille
 </ul>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"BiocManager"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb1-2"><a href=""></a>    <span class="fu">install.packages</span>(<span class="st">"BiocManager"</span>)</span>
 <span id="cb1-3"><a href=""></a></span>
-<span id="cb1-4"><a href=""></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/QFeaturesGUI"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href=""></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/QFeaturesGUI"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div style="font-size:70%">
 <p><code>importQFeatures</code> est une application permettant l’import de données de protéomique quantitative en objet QFeatures.</p>
@@ -258,9 +282,9 @@ Léopold Guyot, Loïc Guille
 </ul>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(QFeaturesGUI)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(QFeaturesGUI)</span>
 <span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="fu">importQFeatures</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a><span class="fu">importQFeatures</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="importqfeatures" class="slide level2">
@@ -314,17 +338,17 @@ Léopold Guyot, Loïc Guille
 <p>Il existe plusieurs choix afin de passer un objet QFeatures.</p>
 <p>Avec un objet chargé dans l’environnement R:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co">#qf_objet est un objet QFeatures</span></span>
-<span id="cb3-2"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> qf_objet)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co">#qf_objet est un objet QFeatures</span></span>
+<span id="cb3-2"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> qf_objet)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Avec un objet depuis un fichier rds:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>qf_obj <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"Path/2/File.rds"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>qf_obj <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"Path/2/File.rds"</span>)</span>
 <span id="cb4-2"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> qf_obj)</span>
 <span id="cb4-3"><a href=""></a></span>
 <span id="cb4-4"><a href=""></a><span class="co">#or </span></span>
 <span id="cb4-5"><a href=""></a></span>
-<span id="cb4-6"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> <span class="st">"Path/2/File.rds"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> <span class="st">"Path/2/File.rds"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -537,7 +561,7 @@ Léopold Guyot, Loïc Guille
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -649,13 +673,14 @@ Léopold Guyot, Loïc Guille
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
