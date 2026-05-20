@@ -51,30 +51,45 @@ Budnik B, Levy E, Harmange G, Slavov N. SCoPE-MS: mass spectrometry of single ma
 
 ## Structure de données 
 
-::: {style="font-size: 70%;"}
+
 ### SummarizedExperiment
 
-Le package `summarizedExperiment` contient deux classes : `summarizedExperiment` et `RangedSummarizedExperiment`
-
-L'objet `summarizedExperiment` est un container de matrices ou les lignes représentent les variables d'intérêts (gènes, transcripts, etc ...) et les colonnes représentent les échantillons. Un objet peut contenir un ou plusieurs assays, chacun représenté par une matrice.
-
-### SingleCellExperiment 
-
-La classe `singleCellExperiment` est un container pour écrire et manipuler des données de cellule unique génomique. Elle étend la classe `RangedSummarizedExperiment` et suit des conventions similaires. Cette classe fournit des méthodes pour stocker les résultats de réduction de dimension.
+::::: columns
+::: {.column width="40%" style="font-size: 40%;"}
+![](SummarizedExperiment.png)
+*Figure modifiée depuis la vignette SummarizedExperiment*
 :::
+::: {.column width="60%" style="font-size: 70%;"}
+
+Classe `SummarizedExperiment`:
+
+assay = données quantitatives.
+
+rowData = Annotations des variables d'intérêt (gènes, transcripts, protéines, ...).
+
+colData =  Annotation des échantillons.
+
+:::
+:::::
+
+
 ## QFeatures
 
-L'infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrometrie de masse à haut débit.
+L'infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrométrie de masse à haut débit.
 
 Ce qu'il faut savoir :
 
 ::::: columns
-::: {.column width="40%" style="font-size: 70%;"}
-\- Les données de PSM sont divisées en plusieurs séries (1 série = 1 run)
+::: {.column width="40%" style="font-size: 60%;"}
+\- Un objet QFeatures est composé de plusieurs sets
 
-\- Suivies du lien entre les séries
+\- Chaque set est un `SummarizedExperiment`
 
-\- L'objet final contient chaque version des données
+\- Modifier les données entraine la création de nouveaux sets.
+
+\- Existence de lien entre les sets. 
+
+\- L'objet final contient chaque version des données. 
 :::
 
 ::: {.column width="60%" style="font-size: 70%;"}
@@ -84,7 +99,9 @@ Ce qu'il faut savoir :
 
 ## Pourquoi utiliser QFeaturesGUI ?
 
-QFeaturesGUI est une collection d'application shiny fournissant une interface graphique pour l'analyse de données protéomiques en utilisant l'écosystème Bioconductor. QFeaturesGUI peut utiliser des workflows de single-cell et de bulk. 
+\- Permet à des non experts d'utiliser l'écosystème BioConductor.
+
+\- Interactivité et visualisation.
 
 ![](QFeaturesGUI.png){fig-align="center"}
 
@@ -100,60 +117,54 @@ BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
 ```
 
 ::: {style="font-size:70%"}
-`importQFeatures` est une application permettant l'import de données de protéomique quantitative en objet QFeatures.
+`QFeaturesGUI` contient 2 applications shiny 
 
-- Pour démarrer l'application:
+- `importQFeatures`
+
+- `processQFeatures`
+
 :::
 
-```{r, eval=FALSE, echo= TRUE}
+## importQFeatures
+
+### Données d'entrée
+::: {style="font-size:80%"}
+l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
+
+`assayData`: table générée après l'identification et la quantification des spectres de MS.
+
+  - Colonnes quantitatives
+
+  - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)
+  
+  - (Colonne d'identifiant d'acquisition)
+:::
+
+## importQFeatures
+
+### Données d'entrée
+
+::: {style="font-size:90%"}
+
+`colData`:  table contenant le design expérimental (optionnel). 
+
+  - Une colonne `quantCols` identifiant la colonne quantitative dans l'`assayData` associé à chaque échantillon.
+      
+  - (Une colonne `runCol` identifiant l'acquisition associé à chaque échantillon.)
+
+:::
+
+## importQFeatures
+
+### En pratique
+
+
+```{r, echo=TRUE, eval=FALSE}
 library(QFeaturesGUI)
 
 importQFeatures()
 ```
 
-
-## importQFeatures
-
-### Paramètres
-::: {style="font-size:70%"}
-l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
-
-`assayData`: table générée après l'identification et la quantification des spectres de MS.
-
-  - cas avec un jeu de données simple:
-      
-      - Colonnes quantitatives (1:n) (Non obligatoire si présence d'un colData)
-
-      - Annotations des variables d'intérêt (séquence peptidique, charge des ions, ...)
-  
-  - cas avec un jeu de donnée multiple:
-    
-      - Colonne d'identifiant de run
-      
-      - Colonnes quantitatives (1:n)
-      
-      - Annotation des variables d'intérêt
-:::
-
-## importQFeatures
-
-### Paramètres
-
-::: {style="font-size:70%"}
-
-`colData`:  table contenant le design expérimental. 
-
-  - Cas avec un jeu de donnée simple:
-  
-      - Une colonne nommée `quantCols` qui lie un échantillon à une colonne dans `assayData` qui contient les intensitées.
-      
-  - Cas avec un jeu de données mutliple:
-  
-      - Une colonne nommée `quantCols` qui lie un échantillon à une colonne dans `assayData` qui contient les intensitées.
-      
-      - Une colonne `runCol` identifiant le run associé à l'échantillon.
-
-:::
 
 ## processQFeatures
 
@@ -165,28 +176,20 @@ l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
 
 :::
 
-### Format d'entrée
+### Données d'entrée
 
 :::{style="font-size:80%"}
 
 Il existe plusieurs choix afin de passer un objet QFeatures.
 
-Avec un objet chargé dans l'environnement R:
 
 ```{r, eval=FALSE, echo=TRUE}
-# qf_objet est un objet QFeatures
+# qf_objet est un objet QFeatures dans l'environnement
 processQFeatures(qf = qf_objet)
-```
-
-Avec un objet depuis un fichier rds: 
-
-```{r, eval=FALSE, echo=TRUE}
-qf_obj <- readRDS("Path/2/File.rds")
-processQFeatures(qf = qf_obj)
 
 # ou
-
-processQFeatures(qf = "Path/2/File.rds")
+# pathToRDS est un fichier rds contenant un objet QFeatures
+processQFeatures(qf = "pathToRDS")
 ```
 
 :::
@@ -203,7 +206,7 @@ processQFeatures(qf = "Path/2/File.rds")
 
 [Disponibilité via Docker]{style="text-decoration: underline"}:
 
-\- Une image pour chaque application sera disponible via docker
+\- Une image pour chaque application sera disponible via Dockerhub
 
 Disponibilité via Bioconductor sur la release 3.25
 
