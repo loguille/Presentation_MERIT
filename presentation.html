@@ -6,7 +6,8 @@
 <script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="presentation_files/libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.28">
 
   <meta name="author" content="Léopold Guyot, Loïc Guille">
@@ -246,7 +247,7 @@ Léopold Guyot, Loïc Guille
 </section>
 <section id="qfeatures" class="slide level2">
 <h2>QFeatures</h2>
-<p>L’infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrométrie de masse à haut débit.</p>
+<p>L’infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrométrie.</p>
 <p>Ce qu’il faut savoir :</p>
 <div class="columns">
 <div class="column" style="font-size: 60%;">
@@ -261,6 +262,7 @@ Léopold Guyot, Loïc Guille
 </section>
 <section id="pourquoi-utiliser-qfeaturesgui" class="slide level2">
 <h2>Pourquoi utiliser QFeaturesGUI ?</h2>
+<p>- Application en single-cell et bulk protéomique.</p>
 <p>- Permet à des non experts d’utiliser l’écosystème BioConductor.</p>
 <p>- Interactivité et visualisation.</p>
 
@@ -289,7 +291,6 @@ Léopold Guyot, Loïc Guille
 <h2>importQFeatures</h2>
 <h3 id="données-dentrée">Données d’entrée</h3>
 <div style="font-size:80%">
-<p>l’application prends en entrée 2 paramètres, un <code>assayData</code> et un <code>colData</code></p>
 <p><code>assayData</code>: table générée après l’identification et la quantification des spectres de MS.</p>
 <ul>
 <li><p>Colonnes quantitatives</p></li>
@@ -342,7 +343,16 @@ Léopold Guyot, Loïc Guille
 <h3 id="disponibilité-du-package">Disponibilité du package</h3>
 <div style="font-size:70%">
 <p><span style="text-decoration: underline;">Disponibilité sur github</span>:</p>
-<p>- <a href="https://github.com/UCLouvain-CBIO/QFeaturesGUI">github.com/UCLouvain-CBIO/QFeaturesGUI</a></p>
+<p>- github.com/UCLouvain-CBIO/QFeaturesGUI </p><div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"100","text":"https://github.com/UCLouvain-CBIO/QFeaturesGUI","width":"100"});
+  script.remove();
+})();
+</script>
+    <p></p>
 <p><span style="text-decoration: underline">Disponibilité via Docker</span>:</p>
 <p>- Une image pour chaque application sera disponible via Dockerhub</p>
 <p>Disponibilité via Bioconductor sur la release 3.25</p>

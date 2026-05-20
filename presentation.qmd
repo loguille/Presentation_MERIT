@@ -75,7 +75,7 @@ colData =  Annotation des échantillons.
 
 ## QFeatures
 
-L'infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrométrie de masse à haut débit.
+L'infrastructure QFeatures permet la gestion et le traitement de données quantitatives de spectrométrie.
 
 Ce qu'il faut savoir :
 
@@ -98,6 +98,8 @@ Ce qu'il faut savoir :
 :::::
 
 ## Pourquoi utiliser QFeaturesGUI ?
+
+\- Application en single-cell et bulk protéomique.
 
 \- Permet à des non experts d'utiliser l'écosystème BioConductor.
 
@@ -129,7 +131,6 @@ BiocManager::install("UCLouvain-CBIO/QFeaturesGUI")
 
 ### Données d'entrée
 ::: {style="font-size:80%"}
-l'application prends en entrée 2 paramètres, un `assayData` et un `colData`
 
 `assayData`: table générée après l'identification et la quantification des spectres de MS.
 
@@ -202,7 +203,7 @@ processQFeatures(qf = "pathToRDS")
 
 [Disponibilité sur github]{style="text-decoration: underline;"}:
 
-\- [github.com/UCLouvain-CBIO/QFeaturesGUI](https://github.com/UCLouvain-CBIO/QFeaturesGUI)
+\- github.com/UCLouvain-CBIO/QFeaturesGUI {{< qrcode https://github.com/UCLouvain-CBIO/QFeaturesGUI width=100 height=100 >}}
 
 [Disponibilité via Docker]{style="text-decoration: underline"}:
 
