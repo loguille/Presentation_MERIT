@@ -48,6 +48,14 @@ Budnik B, Levy E, Harmange G, Slavov N. SCoPE-MS: mass spectrometry of single ma
 ![](framing6.drawio.png){.fragment}
 :::
 
+## Bioconductor {.nostretch}
+
+Projet open source pour développer et partager des software en language R.
+
+Encode de nombreuse structure de données pour la gestion de données.
+
+![](bioconductor.svg){width=50%}
+
 
 ## Structure de données 
 
@@ -101,7 +109,7 @@ Ce qu'il faut savoir :
 
 \- Application en single-cell et bulk protéomique.
 
-\- Permet à des non experts d'utiliser l'écosystème BioConductor.
+\- Permet à des non experts d'utiliser l'écosystème Bioconductor.
 
 \- Interactivité et visualisation.
 
@@ -209,9 +217,11 @@ processQFeatures(qf = "pathToRDS")
 
 \- Une image pour chaque application sera disponible via Dockerhub
 
-Disponibilité via Bioconductor sur la release 3.25
+Disponibilité via Bioconductor sur la release 3.23
 
 :::
+
+## Conclusions
 
 ### Développements futurs
 
