@@ -6,9 +6,9 @@
 <script src="presentation_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="presentation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="presentation_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-b719d3d4935f2b08311a76135e2bf442.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="presentation_files/libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="presentation_files/libs/quarto-contrib/qrcodejs-v1.0.0/qrcode.js"></script><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.28">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Léopold Guyot, Loïc Guille">
   <title>QFeaturesGUI, une interface graphique pour l’analyse de données de single-cell proteomics</title>
@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -96,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-8a5cdbf101a0845817b98f2425171703.css">
+  <link rel="stylesheet" href="presentation_files/libs/revealjs/dist/theme/quarto-1a8385bbf955fbb4448938bc10efacf4.css">
   <link rel="stylesheet" href="style.css">
   <link href="presentation_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="presentation_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -206,7 +209,7 @@ Léopold Guyot, Loïc Guille
 </div>
 </div>
 
-  <p class="date">21 mai 2026</p>
+  <p class="date">22 mai 2026</p>
 </section>
 <section id="pourquoi-étudier-la-single-cell-proteomics" class="slide level2">
 <h2>Pourquoi étudier la single-cell proteomics ?</h2>
@@ -235,7 +238,7 @@ Léopold Guyot, Loïc Guille
 <section id="bioconductor" class="slide level2 nostretch">
 <h2>Bioconductor</h2>
 <p>Projet open source pour développer et partager des software en language R.</p>
-<p>Encode de nombreuse structure de données pour la gestion de données.</p>
+<p>Encode de nombreuse structure de données pour la gestion de données omiques.</p>
 <p><img data-src="bioconductor.svg" style="width:50.0%"></p>
 </section>
 <section id="structure-de-données" class="slide level2">
@@ -269,7 +272,7 @@ Léopold Guyot, Loïc Guille
 <section id="pourquoi-utiliser-qfeaturesgui" class="slide level2">
 <h2>Pourquoi utiliser QFeaturesGUI ?</h2>
 <p>- Application en single-cell et bulk protéomique.</p>
-<p>- Permet à des non experts d’utiliser l’écosystème Bioconductor.</p>
+<p>- Permet à des non initiés à la bioinformatique d’utiliser l’écosystème Bioconductor.</p>
 <p>- Interactivité et visualisation.</p>
 
 <img data-src="QFeaturesGUI.png" class="quarto-figure quarto-figure-center r-stretch"></section>
@@ -281,9 +284,9 @@ Léopold Guyot, Loïc Guille
 </ul>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># install.packages("BiocManager")</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># install.packages("BiocManager")</span></span>
 <span id="cb1-2"><a href=""></a></span>
-<span id="cb1-3"><a href=""></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"UCLouvain-CBIO/QFeaturesGUI"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href=""></a>BiocManager<span class="sc">::</span><span class="fu">install</span>(<span class="st">"rformassspectrometry/QFeaturesGUI"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div style="font-size:70%">
 <p><code>QFeaturesGUI</code> contient 2 applications shiny</p>
@@ -320,9 +323,9 @@ Léopold Guyot, Loïc Guille
 <h2>importQFeatures</h2>
 <h3 id="en-pratique">En pratique</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(QFeaturesGUI)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="fu">library</span>(QFeaturesGUI)</span>
 <span id="cb2-2"><a href=""></a></span>
-<span id="cb2-3"><a href=""></a><span class="fu">importQFeatures</span>()</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href=""></a><span class="fu">importQFeatures</span>()</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="processqfeatures" class="slide level2">
@@ -335,12 +338,12 @@ Léopold Guyot, Loïc Guille
 <div style="font-size:80%">
 <p>Il existe plusieurs choix afin de passer un objet QFeatures.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># qf_objet est un objet QFeatures dans l'environnement</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># qf_objet est un objet QFeatures dans l'environnement</span></span>
 <span id="cb3-2"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> qf_objet)</span>
 <span id="cb3-3"><a href=""></a></span>
 <span id="cb3-4"><a href=""></a><span class="co"># ou</span></span>
 <span id="cb3-5"><a href=""></a><span class="co"># pathToRDS est un fichier rds contenant un objet QFeatures</span></span>
-<span id="cb3-6"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> <span class="st">"pathToRDS"</span>)</span></code><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a href=""></a><span class="fu">processQFeatures</span>(<span class="at">qf =</span> <span class="st">"pathToRDS"</span>)</span></code></pre></div><button title="Copier vers le presse-papier" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -349,19 +352,11 @@ Léopold Guyot, Loïc Guille
 <h3 id="disponibilité-du-package">Disponibilité du package</h3>
 <div style="font-size:70%">
 <p><span style="text-decoration: underline;">Disponibilité sur github</span>:</p>
-<p>- github.com/UCLouvain-CBIO/QFeaturesGUI </p><div id="" class="qrcode"></div>
-<script type="text/javascript">
-(function() {
-  var script = document.currentScript;
-  var qrcode = script.previousElementSibling;
-  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"100","text":"https://github.com/UCLouvain-CBIO/QFeaturesGUI","width":"100"});
-  script.remove();
-})();
-</script>
-    <p></p>
+<p>- github.com/rformassspectrometry/QFeaturesGUI</p>
 <p><span style="text-decoration: underline">Disponibilité via Docker</span>:</p>
 <p>- Une image pour chaque application sera disponible via Dockerhub</p>
-<p>Disponibilité via Bioconductor sur la release 3.23</p>
+<p><span style="text-decoration: underline">Disponibilité via Bioconductor</span>:</p>
+<p>- Le package sera disponible dans Bioconductor dans la release 3.25</p>
 </div>
 </section>
 <section id="conclusions-1" class="slide level2">
@@ -372,10 +367,44 @@ Léopold Guyot, Loïc Guille
 <p>- Une application de visualisation (iSEEQFeatures)</p>
 <p>- Une application d’exploration de résultats d’abondance différentielle (iSEEda)</p>
 </div>
+</section>
+<section id="merci-pour-votre-attention" class="slide level2 merci-slide">
+<h2>Merci pour votre attention !</h2>
+<div class="merci-links">
+<div class="merci-link">
+<p><span class="merci-link-title">Documentation</span></p>
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"180","text":"https://rformassspectrometry.github.io/QFeaturesGUI/","width":"180"});
+  script.remove();
+})();
+</script>
+    
+<p><a href="https://rformassspectrometry.github.io/QFeaturesGUI/">https://rformassspectrometry.github.io/QFeaturesGUI/</a></p>
+</div>
+<div class="merci-link">
+<p><span class="merci-link-title">GitHub</span></p>
+<div id="" class="qrcode"></div>
+<script type="text/javascript">
+(function() {
+  var script = document.currentScript;
+  var qrcode = script.previousElementSibling;
+  qrcode.qrcode = new QRCode(qrcode, {"colorDark":"#000000","colorLight":"#ffffff","height":"180","text":"https://github.com/rformassspectrometry/QFeaturesGUI","width":"180"});
+  script.remove();
+})();
+</script>
+    
+<p><a href="https://github.com/rformassspectrometry/QFeaturesGUI">github.com/rformassspectrometry/QFeaturesGUI</a></p>
+</div>
+</div>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="logoCBIO.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -432,7 +461,7 @@ Léopold Guyot, Loïc Guille
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
@@ -565,7 +594,7 @@ Léopold Guyot, Loïc Guille
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -677,13 +706,14 @@ Léopold Guyot, Loïc Guille
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

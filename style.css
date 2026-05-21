@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: none !important;
 }
 
+.reveal .slide-logo {
+   max-height: 3em !important;
+}
+
 .single-cell-proteome-main {
   min-height: 430px;
   display: flex;
@@ -63,4 +67,37 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   object-fit: contain;
   margin: 0;
+}
+
+.merci-slide h2 {
+  margin-bottom: 1.2em;
+}
+
+.merci-links {
+  display: flex;
+  justify-content: center;
+  gap: 3em;
+  align-items: flex-start;
+}
+
+.merci-link {
+  flex: 0 1 320px;
+  text-align: center;
+  font-size: 0.65em;
+}
+
+.merci-link-title {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.merci-link .qrcode {
+  display: inline-block;
+  margin: 0.2em auto 0.6em;
+}
+
+.merci-link p {
+  margin: 0.25em 0;
 }
